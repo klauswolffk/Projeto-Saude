@@ -19,7 +19,7 @@ public class MenuView {
                            "|2. Listar Médico        |\n" +
                            "|3. Remover Médico       |\n" +
                            "|4. Atualizar Médico     |\n" +
-                           "|5. " );
+                           "|5. a" );
         opcao = ler.nextByte();
         menucontroller.principalcontroller(opcao);
 
