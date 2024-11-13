@@ -14,12 +14,18 @@ public class MenuView {
     }
 
     public static void mostrarMenuPrincipal() {
-        System.out.println("|----------MENU----------|\n" +
-                           "|1. Cadastrar Médico     |\n" +
-                           "|2. Listar Médico        |\n" +
-                           "|3. Remover Médico       |\n" +
-                           "|4. Atualizar Médico     |\n" +
-                           "|5. a" );
+        System.out.println("|------------------MENU------------------|\n" +
+                           "|1. Cadastrar Médico                     |\n" +
+                           "|2. Listar Médico                        |\n" +
+                           "|3. Remover Médico                       |\n" +
+                           "|4. Atualizar Médico                     |\n" +
+                           "|5. Cadastras Dispositivo                |\n" +
+                           "|6. Listar Dispositivos                  |\n" +
+                           "|7. Remover Dispositivos                 |\n" +
+                           "|8. Cadastrar Paciente                   |\n" +
+                           "|9. |\n" +
+                           "|10.|\n" +
+                           "|11.|\n" );
         opcao = ler.nextByte();
         menucontroller.principalcontroller(opcao);
 

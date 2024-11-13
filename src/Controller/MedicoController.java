@@ -51,28 +51,20 @@ public class MedicoController {
     }
 
     // Método para atualizar as informações de um médico pelo CRM
-    public String atualizarMedico(int crm) {
+    public String atualizarMedico(int crm, String nome, String especialidade, String email, String telefone) {
         for (Medico medico : medicos) {
             if (medico.getCrm() == crm) {
-                System.out.println("Médico encontrado. O que você deseja atualizar?");
-
                 // Atualizando o nome
-                System.out.print("Nome atual: " + medico.getNome() + ". Digite o novo nome ou pressione Enter para manter: ");
-                String nome = scanner.nextLine();
                 if (!nome.isEmpty()) {
                     medico.setNome(nome);
                 }
 
                 // Atualizando a especialidade
-                System.out.print("Especialidade atual: " + medico.getEspecialidade() + ". Digite a nova especialidade ou pressione Enter para manter: ");
-                String especialidade = scanner.nextLine();
                 if (!especialidade.isEmpty()) {
                     medico.setEspecialidade(especialidade);
                 }
 
                 // Atualizando o e-mail
-                System.out.print("E-mail atual: " + medico.getEmail() + ". Digite o novo e-mail ou pressione Enter para manter: ");
-                String email = scanner.nextLine();
                 if (!email.isEmpty()) {
                     if (!isValidEmail(email)) {
                         return "E-mail inválido.";
@@ -81,8 +73,6 @@ public class MedicoController {
                 }
 
                 // Atualizando o telefone
-                System.out.print("Telefone atual: " + medico.getTelefone() + ". Digite o novo telefone ou pressione Enter para manter: ");
-                String telefone = scanner.nextLine();
                 if (!telefone.isEmpty()) {
                     if (!isValidTelefone(telefone)) {
                         return "Telefone inválido.";
@@ -96,7 +86,7 @@ public class MedicoController {
         return "CRM não encontrado.";
     }
 
-    // Validação do formato de e-mail (simples)
+    // Validação do formato de e-mail
     private boolean isValidEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
@@ -104,7 +94,7 @@ public class MedicoController {
         return matcher.matches();
     }
 
-    // Validação do formato do telefone (simples, somente números)
+    // Validação do formato do telefone
     private boolean isValidTelefone(String telefone) {
         // Aqui você pode adicionar uma validação mais rigorosa dependendo do formato desejado
         return telefone.matches("\\d{10,11}"); // Exemplo: telefone de 10 ou 11 dígitos

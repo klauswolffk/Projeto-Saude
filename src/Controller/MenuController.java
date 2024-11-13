@@ -1,10 +1,17 @@
 package Controller;
 
+import Model.Paciente;
+import View.DispositivoView;
 import View.MedicoView;
+import View.PacienteView;
 
 public class MenuController {
-    MedicoController medicoView;
+    PacienteController pacienteController = new PacienteController();
+    PacienteView pacienteView = new PacienteView();
     MedicoView medicoview = new MedicoView();
+    MedicoController medicoController = new MedicoController();
+    DispositivosController dispositivosController = new DispositivosController();
+    DispositivoView dispositivoView = new DispositivoView();
     public void principalcontroller(byte opcao) {
         switch (opcao){
             case 1:
@@ -18,6 +25,22 @@ public class MenuController {
                 break;
             case 4:
                 medicoview.atualizarMedico();
+                break;
+            case 5:
+                dispositivoView.cadastrarDispositivo();
+                break;
+            case 6:
+                dispositivoView.listarDispositivos();
+                break;
+            case 7:
+                dispositivoView.removerDispositivo();
+                break;
+            case 8:
+                pacienteView.cadastrarPaciente();
+                break;
+            case 9:
+                break;
+            case 10:
                 break;
 
         }

@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.List;
+
 public class Paciente {
     private String nome;
     private String cpf;
@@ -8,8 +10,10 @@ public class Paciente {
     private String telefone;
     private String email;
     private String historico;
-    private String medicamentos;
-    private String dispositivos;
+    private Medicacoes medicacoes;
+    private Dispositivos dispositivos;
+
+
 
     public String getNome() {
         return nome;
@@ -19,20 +23,20 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
     public String getCpf() {
         return cpf;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getEndereco() {
@@ -67,19 +71,4 @@ public class Paciente {
         this.historico = historico;
     }
 
-    public String getMedicamentos() {
-        return medicamentos;
-    }
-
-    public void setMedicamentos(String medicamentos) {
-        this.medicamentos = medicamentos;
-    }
-
-    public String getDispositivos() {
-        return dispositivos;
-    }
-
-    public void setDispositivos(String dispositivos) {
-        this.dispositivos = dispositivos;
-    }
 }
