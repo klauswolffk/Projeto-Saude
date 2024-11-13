@@ -18,7 +18,8 @@ public class MenuView {
                            "|1. Cadastrar Médico     |\n" +
                            "|2. Listar Médico        |\n" +
                            "|3. Remover Médico       |\n" +
-                           "|4. Atualizar Médico     |\n" );
+                           "|4. Atualizar Médico     |\n" +
+                           "|5. " );
         opcao = ler.nextByte();
         menucontroller.principalcontroller(opcao);
 
