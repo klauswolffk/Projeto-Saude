@@ -40,22 +40,4 @@ public class MedicoView {
         }
         MenuView.mostrarMenuPrincipal();
     }
-
-    public void removerMedico() {
-        System.out.println("Digite o CRM do médico que deseja remover: ");
-        int crm = ler.nextInt();
-        String resultado = medicocontroller.removerMedico(crm);
-        System.out.println(resultado);
-        MenuView.mostrarMenuPrincipal();
-    }
-    public void atualizarMedico() {
-        System.out.println("Digite o CRM do médico que deseja atualizar: ");
-        int crm = ler.nextInt();
-        ler.nextLine(); // Consumir a nova linha
-
-        // Chama o método de atualização do Controller
-        String resultado = medicocontroller.atualizarMedico(crm);
-        System.out.println(resultado);
-        MenuView.mostrarMenuPrincipal();
-    }
 }
