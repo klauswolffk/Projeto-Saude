@@ -16,7 +16,9 @@ public class MenuView {
     public static void mostrarMenuPrincipal() {
         System.out.println("|----------MENU----------|\n" +
                            "|1. Cadastrar Médico     |\n" +
-                           "|2. Listar Médico        |" );
+                           "|2. Listar Médico        |\n" +
+                           "|3. Remover Médico       |\n" +
+                           "|4. Atualizar Médico     |\n" );
         opcao = ler.nextByte();
         menucontroller.principalcontroller(opcao);
 

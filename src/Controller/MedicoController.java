@@ -4,12 +4,14 @@ import Model.Medico;
 
 import java.util.ArrayList;
 
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MedicoController {
 
     private ArrayList<Medico> medicos = new ArrayList();
+    private Scanner scanner = new Scanner(System.in);
 
     public String registrarmedico(Medico medico) {
         // 1. Validação de CRM único
@@ -35,6 +37,63 @@ public class MedicoController {
         // 3. Adicionando o médico à lista se todas as validações passarem
         medicos.add(medico);
         return "Médico cadastrado com sucesso!";
+    }
+
+    //Método para remover medico pelo crm
+    public String removerMedico(int crm) {
+        for (Medico m : medicos) {
+            if (m.getCrm() == crm) {
+                medicos.remove(m);
+                return "Médico removido com sucesso!";
+            }
+        }
+        return "CRM não encontrado.";
+    }
+
+    // Método para atualizar as informações de um médico pelo CRM
+    public String atualizarMedico(int crm) {
+        for (Medico medico : medicos) {
+            if (medico.getCrm() == crm) {
+                System.out.println("Médico encontrado. O que você deseja atualizar?");
+
+                // Atualizando o nome
+                System.out.print("Nome atual: " + medico.getNome() + ". Digite o novo nome ou pressione Enter para manter: ");
+                String nome = scanner.nextLine();
+                if (!nome.isEmpty()) {
+                    medico.setNome(nome);
+                }
+
+                // Atualizando a especialidade
+                System.out.print("Especialidade atual: " + medico.getEspecialidade() + ". Digite a nova especialidade ou pressione Enter para manter: ");
+                String especialidade = scanner.nextLine();
+                if (!especialidade.isEmpty()) {
+                    medico.setEspecialidade(especialidade);
+                }
+
+                // Atualizando o e-mail
+                System.out.print("E-mail atual: " + medico.getEmail() + ". Digite o novo e-mail ou pressione Enter para manter: ");
+                String email = scanner.nextLine();
+                if (!email.isEmpty()) {
+                    if (!isValidEmail(email)) {
+                        return "E-mail inválido.";
+                    }
+                    medico.setEmail(email);
+                }
+
+                // Atualizando o telefone
+                System.out.print("Telefone atual: " + medico.getTelefone() + ". Digite o novo telefone ou pressione Enter para manter: ");
+                String telefone = scanner.nextLine();
+                if (!telefone.isEmpty()) {
+                    if (!isValidTelefone(telefone)) {
+                        return "Telefone inválido.";
+                    }
+                    medico.setTelefone(telefone);
+                }
+
+                return "Dados do médico atualizados com sucesso!";
+            }
+        }
+        return "CRM não encontrado.";
     }
 
     // Validação do formato de e-mail (simples)
