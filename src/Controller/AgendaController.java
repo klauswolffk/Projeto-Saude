@@ -10,7 +10,6 @@ public class AgendaController {
 
     public String realizarAgendamento(Agenda agenda){
 
-
         return null;
     }
 
