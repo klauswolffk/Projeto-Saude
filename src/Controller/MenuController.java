@@ -6,11 +6,8 @@ import View.MedicoView;
 import View.PacienteView;
 
 public class MenuController {
-    PacienteController pacienteController = new PacienteController();
     PacienteView pacienteView = new PacienteView();
     MedicoView medicoview = new MedicoView();
-    MedicoController medicoController = new MedicoController();
-    DispositivosController dispositivosController = new DispositivosController();
     DispositivoView dispositivoView = new DispositivoView();
     public void principalcontroller(byte opcao) {
         switch (opcao){
