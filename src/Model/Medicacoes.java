@@ -7,6 +7,7 @@ public class Medicacoes {
     private String descricao;
     private Medico medico;
     private String dataPrescricao;
+    private int identificacao;
 
     public String getNome() {
         return nome;
@@ -54,5 +55,13 @@ public class Medicacoes {
 
     public void setDataPrescricao(String dataPrescricao) {
         this.dataPrescricao = dataPrescricao;
+    }
+
+    public int getIdentificacao() {
+        return identificacao;
+    }
+
+    public void setIdentificacao(int identificacao) {
+        this.identificacao = identificacao;
     }
 }

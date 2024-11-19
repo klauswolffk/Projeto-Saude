@@ -19,7 +19,7 @@ public class MenuView {
                            "|2. Listar Médico                        |\n" +
                            "|3. Remover Médico                       |\n" +
                            "|4. Atualizar Médico                     |\n" +
-                           "|5. Cadastras Dispositivo                |\n" +
+                           "|5. Cadastrar Dispositivo                |\n" +
                            "|6. Listar Dispositivos                  |\n" +
                            "|7. Remover Dispositivos                 |\n" +
                            "|8. Cadastrar Paciente                   |\n" +
