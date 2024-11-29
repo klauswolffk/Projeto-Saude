@@ -10,8 +10,7 @@ public class DispositivoView {
     private Scanner ler = new Scanner(System.in);
     private DispositivosController dispositivoController = new DispositivosController();
 
-    public void cadastrarDispositivo() {
-        Dispositivos dispositivo = new Dispositivos();
+    public void cadastrarDispositivo(Dispositivos dispositivo) {
         System.out.println("Digite o tipo do dispositivo: ");
         dispositivo.setTipo(ler.next());
         System.out.println("Digite a marca do dispositivo: ");

@@ -12,8 +12,7 @@ public class MedicoView {
     private MedicoController medicocontroller = new MedicoController();
 
 
-    public void cadastrarMedico() {
-        Medico medicoview = new Medico();
+    public void cadastrarMedico(Medico medicoview) {
         System.out.println("Digite o nome do Médico: ");
         medicoview.setNome(ler.next());
         System.out.println("Digite a especialidade do Médico: ");

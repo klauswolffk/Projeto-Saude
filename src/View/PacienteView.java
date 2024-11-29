@@ -1,8 +1,10 @@
 package View;
 
 import Controller.PacienteController;
+import Model.Medico;
 import Model.Paciente;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PacienteView {
@@ -11,9 +13,10 @@ public class PacienteView {
     private PacienteController pacienteController = new PacienteController();
 
     // Método para cadastrar um paciente
-    public void cadastrarPaciente() {
+    public void cadastrarPaciente(Paciente paciente) {
         System.out.println("Digite o nome do paciente:");
         String nome = scanner.nextLine();
+
 
         System.out.println("Digite o CPF do paciente:");
         String cpf = scanner.nextLine();
@@ -34,7 +37,6 @@ public class PacienteView {
         String historico = scanner.nextLine();
 
         // Criando o objeto Paciente e configurando seus atributos
-        Paciente paciente = new Paciente();
         paciente.setNome(nome);
         paciente.setCpf(cpf);
         paciente.setDataNascimento(dataNascimento);
@@ -46,6 +48,23 @@ public class PacienteView {
         // Chamando o método para registrar o paciente
         String resultado = pacienteController.registrarPaciente(paciente);
         System.out.println(resultado);
+        MenuView.mostrarMenuPrincipal();
+    }
+
+    public void listarPaciente() {
+        ArrayList<Paciente> listpaciente = pacienteController.listarPacientes();
+        for (Paciente paciente : listpaciente) {
+            System.out.println(
+                    "PACIENTES"
+                    +   "Nome: " + paciente.getNome()
+                    + "\nCPF: " + paciente.getCpf()
+                    + "\nData de Nascimento: " + paciente.getDataNascimento()
+                    + "\nEndereço: " + paciente.getEndereco()
+                    + "\nTelefone: " + paciente.getTelefone()
+                    + "\nE-mail: " + paciente.getEmail()
+                    + "\nHistórico de doenças: " + paciente.getHistorico());
+            System.out.println(" ");
+        }
         MenuView.mostrarMenuPrincipal();
     }
 
