@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Medico;
+import View.MedicoView;
 
 import java.util.ArrayList;
 
@@ -11,7 +12,6 @@ import java.util.regex.Pattern;
 public class MedicoController {
 
     private ArrayList<Medico> medicos = new ArrayList();
-    private Scanner scanner = new Scanner(System.in);
 
     public String registrarmedico(Medico medico) {
         // 1. Validação de CRM único

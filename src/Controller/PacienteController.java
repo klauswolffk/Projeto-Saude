@@ -1,12 +1,13 @@
 package Controller;
 
+import Model.Medico;
 import Model.Paciente;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PacienteController {
 
-    private List<Paciente> pacientes = new ArrayList<>();
+    private ArrayList<Paciente> pacientes = new ArrayList<>();
 
     // Método para registrar um paciente
     public String registrarPaciente(Paciente paciente) {
@@ -39,6 +40,10 @@ public class PacienteController {
 
         pacientes.add(paciente);
         return "Paciente registrado com sucesso!";
+    }
+
+    public ArrayList<Paciente> listarPacientes() {
+        return this.pacientes;
     }
 
 }

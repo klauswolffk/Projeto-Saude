@@ -23,9 +23,9 @@ public class MenuView {
                            "|6. Listar Dispositivos                  |\n" +
                            "|7. Remover Dispositivos                 |\n" +
                            "|8. Cadastrar Paciente                   |\n" +
-                           "|9. |\n" +
-                           "|10.|\n" +
-                           "|11.|\n" );
+                           "|9. Listar Paciente                      |\n" +
+                           "|10.                                     |\n" +
+                           "|11.                                     |\n" );
         opcao = ler.nextByte();
         menucontroller.principalcontroller(opcao);
 
