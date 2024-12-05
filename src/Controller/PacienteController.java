@@ -1,9 +1,9 @@
 package Controller;
 
-import Model.Medico;
+
 import Model.Paciente;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class PacienteController {
 
@@ -42,8 +42,26 @@ public class PacienteController {
         return "Paciente registrado com sucesso!";
     }
 
+    // Método para alterar os dados do paciente
+    public String alterarDadosPaciente(String cpf, Paciente novosDados) {
+        for (Paciente p : pacientes) {
+            if (p.getCpf().equals(cpf)) {
+                // Alterando os dados do paciente
+                p.setNome(novosDados.getNome());
+                p.setDataNascimento(novosDados.getDataNascimento());
+                p.setEndereco(novosDados.getEndereco());
+                p.setTelefone(novosDados.getTelefone());
+                p.setEmail(novosDados.getEmail());
+                return "Dados do paciente alterados com sucesso!";
+            }
+        }
+        return "Paciente não encontrado.";
+    }
+
     public ArrayList<Paciente> listarPacientes() {
         return this.pacientes;
     }
+
+
 
 }

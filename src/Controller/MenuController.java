@@ -4,13 +4,15 @@ package Controller;
 import Model.Dispositivos;
 import Model.Paciente;
 import View.DispositivoView;
+import View.MedicacoesView;
 import View.MedicoView;
 import View.PacienteView;
 
 public class MenuController {
-    PacienteView pacienteView = new PacienteView();
-    MedicoView medicoview = new MedicoView();
-    DispositivoView dispositivoView = new DispositivoView();
+    private PacienteView pacienteView = new PacienteView();
+    private MedicoView medicoview = new MedicoView();
+    private DispositivoView dispositivoView = new DispositivoView();
+    private MedicacoesView medicacoesView = new MedicacoesView();
     public void principalcontroller(byte opcao) {
         Dispositivos dispositivos = new Dispositivos();
         Paciente paciente = new Paciente();
@@ -40,11 +42,23 @@ public class MenuController {
                 pacienteView.cadastrarPaciente(paciente);
                 break;
             case 9:
-                pacienteView.listarPaciente();
+                pacienteView.alterarPaciente();
                 break;
             case 10:
+                pacienteView.listarPaciente();
                 break;
-
+            case 11:
+                medicacoesView.cadastrarMedicacao();
+                break;
+            case 12:
+                medicacoesView.alterarDosagem();
+                break;
+            case 13:
+                medicacoesView.removerMedicacao();
+                break;
+            case 14:
+                medicacoesView.listarMedicacoes();
+                break;
         }
     }
 }
