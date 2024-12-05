@@ -1,4 +1,5 @@
 package View;
+
 import Controller.MedicoController;
 import Model.Medico;
 
@@ -8,27 +9,38 @@ import java.util.Scanner;
 public class MedicoView {
 
     private Scanner ler = new Scanner(System.in);
-
     private MedicoController medicocontroller = new MedicoController();
 
+    public void cadastrarMedico() {
+        Medico medicoview = new Medico(); // Criando uma nova instância do objeto Medico
 
-    public void cadastrarMedico(Medico medicoview) {
         System.out.println("Digite o nome do Médico: ");
         medicoview.setNome(ler.next());
+
         System.out.println("Digite a especialidade do Médico: ");
         medicoview.setEspecialidade(ler.next());
+
         System.out.println("Digite o CRM do Médico: ");
         medicoview.setCrm(ler.nextInt());
+
         System.out.println("Digite o E-mail do Médico: ");
         medicoview.setEmail(ler.next());
+
         System.out.println("Digite o telefone do Médico: ");
         medicoview.setTelefone(ler.next());
+
+        // Chama o método do controller para registrar o médico
         System.out.println(medicocontroller.registrarmedico(medicoview));
-        MenuView.mostrarMenuPrincipal();
+
+        MenuView.mostrarMenuPrincipal(); // Volta para o menu principal
     }
 
     public void listarMedico() {
         ArrayList<Medico> listmedico = medicocontroller.listarMedicos();
+        // Verifica se a lista está vazia
+        if (listmedico.isEmpty()) {
+            System.out.println("Não há médicos cadastrados.");
+        } else {
         for (Medico medico : listmedico) {
             System.out.println("Nome: " + medico.getNome()
                     + "\nEspecialidade: " + medico.getEspecialidade()
@@ -37,8 +49,10 @@ public class MedicoView {
                     + "\nTelefone: " + medico.getTelefone());
             System.out.println(" ");
         }
+        }
         MenuView.mostrarMenuPrincipal();
     }
+
     public void removerMedico() {
         System.out.println("Digite o CRM do Médico que deseja remover: ");
         int crm = ler.nextInt();
@@ -46,6 +60,7 @@ public class MedicoView {
         System.out.println(resultado);
         MenuView.mostrarMenuPrincipal();
     }
+
     public void atualizarMedico() {
         System.out.println("Digite o CRM do Médico que deseja atualizar: ");
         int crm = ler.nextInt();
