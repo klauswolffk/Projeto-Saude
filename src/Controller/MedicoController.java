@@ -102,4 +102,15 @@ public class MedicoController {
         // Caso o CRM não seja encontrado na lista
         return "CRM não encontrado.";
     }
+
+    public Medico buscarMedicoPorCRM(int crm) {
+        for (Medico medico : medicos) {
+            if (medico.getCrm() == crm) {
+                return medico; // Retorna o médico se o CRM for encontrado
+            }
+        }
+        return null; // Retorna null se o médico não for encontrado
+    }
+
+
 }

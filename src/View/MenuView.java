@@ -14,18 +14,21 @@ public class MenuView {
     }
 
     public static void mostrarMenuPrincipal() {
-        System.out.println("|------------------MENU------------------|\n" +
-                           "|1. Cadastrar Médico                     |\n" +
-                           "|2. Listar Médico                        |\n" +
-                           "|3. Remover Médico                       |\n" +
-                           "|4. Atualizar Médico                     |\n" +
-                           "|5. Cadastrar Dispositivo                |\n" +
-                           "|6. Listar Dispositivos                  |\n" +
-                           "|7. Remover Dispositivos                 |\n" +
-                           "|8. Cadastrar Paciente                   |\n" +
-                           "|9. Listar Paciente                      |\n" +
-                           "|10.                                     |\n" +
-                           "|11.                                     |\n" );
+        System.out.println("|-------------------MENU-------------------|\n" +
+                           "|1.   Cadastrar Médico                     |\n" +
+                           "|2.   Listar Médico                        |\n" +
+                           "|3.   Remover Médico                       |\n" +
+                           "|4.   Atualizar Médico                     |\n" +
+                           "|5.   Cadastrar Dispositivo                |\n" +
+                           "|6.   Listar Dispositivos                  |\n" +
+                           "|7.   Remover Dispositivos                 |\n" +
+                           "|8.   Cadastrar Paciente                   |\n" +
+                           "|9.   Atualizar Paciente                   |\n" +
+                           "|10.  Listar Paciente                      |\n" +
+                           "|11.  Cadastrar Medicações                 |\n" +
+                           "|12.  Alterar Dosagem                      |\n" +
+                           "|13.  Remover Medicações                   |\n" +
+                           "|14.  Listar Medicações                    |\n" );
         opcao = ler.nextByte();
         menucontroller.principalcontroller(opcao);
 
