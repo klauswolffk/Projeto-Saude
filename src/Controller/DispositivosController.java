@@ -3,6 +3,7 @@ package Controller;
 import Model.Dispositivos;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class DispositivosController {
 
@@ -38,9 +39,12 @@ public class DispositivosController {
 
     // Método para remover dispositivo pelo modelo
     public String removerDispositivo(String modelo) {
-        for (Dispositivos dispositivo : dispositivos) {
+        // Usando iterador para evitar erro de modificação da lista durante iteração
+        Iterator<Dispositivos> iterator = dispositivos.iterator();
+        while (iterator.hasNext()) {
+            Dispositivos dispositivo = iterator.next();
             if (dispositivo.getModelo().equalsIgnoreCase(modelo)) {
-                dispositivos.remove(dispositivo);
+                iterator.remove();  // Remove o dispositivo
                 return "Dispositivo removido com sucesso!";
             }
         }
@@ -58,22 +62,10 @@ public class DispositivosController {
             sb.append("Tipo: ").append(dispositivo.getTipo())
                     .append("\nMarca: ").append(dispositivo.getMarca())
                     .append("\nModelo: ").append(dispositivo.getModelo())
-                    .append("\nStatus: ").append(dispositivo.getStatus() ? "Ativo" : "Inativo")
                     .append("\nValores de Referência: ").append(dispositivo.getValoresReferencia())
                     .append("\n\n");
         }
         return sb.toString();
-    }
-
-    // Método para alterar status do dispositivo
-    public String alterarStatusDispositivo(String modelo, boolean novoStatus) {
-        for (Dispositivos dispositivo : dispositivos) {
-            if (dispositivo.getModelo().equalsIgnoreCase(modelo)) {
-                dispositivo.setStatus(novoStatus);
-                return "Status do dispositivo atualizado com sucesso!";
-            }
-        }
-        return "Dispositivo não encontrado.";
     }
 
     // Método para listar todos os dispositivos cadastrados

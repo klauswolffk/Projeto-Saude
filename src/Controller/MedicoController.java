@@ -1,18 +1,15 @@
 package Controller;
 
 import Model.Medico;
-import View.MedicoView;
-
 import java.util.ArrayList;
-
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MedicoController {
 
-    private ArrayList<Medico> medicos = new ArrayList();
+    private ArrayList<Medico> medicos = new ArrayList<>();
 
+    // Método para registrar médico
     public String registrarmedico(Medico medico) {
         // 1. Validação de CRM único
         for (Medico m : medicos) {
@@ -34,59 +31,18 @@ public class MedicoController {
         if (medico.getTelefone() == null || medico.getTelefone().isEmpty() || !isValidTelefone(medico.getTelefone())) {
             return "Telefone inválido.";
         }
-        // 3. Adicionando o médico à lista se todas as validações passarem
+
+        // Adiciona o médico à lista
         medicos.add(medico);
         return "Médico cadastrado com sucesso!";
     }
 
-    //Método para remover medico pelo crm
-    public String removerMedico(int crm) {
-        for (Medico m : medicos) {
-            if (m.getCrm() == crm) {
-                medicos.remove(m);
-                return "Médico removido com sucesso!";
-            }
-        }
-        return "CRM não encontrado.";
+    // Método para listar médicos
+    public ArrayList<Medico> listarMedicos() {
+        return this.medicos;
     }
 
-    // Método para atualizar as informações de um médico pelo CRM
-    public String atualizarMedico(int crm, String nome, String especialidade, String email, String telefone) {
-        for (Medico medico : medicos) {
-            if (medico.getCrm() == crm) {
-                // Atualizando o nome
-                if (!nome.isEmpty()) {
-                    medico.setNome(nome);
-                }
-
-                // Atualizando a especialidade
-                if (!especialidade.isEmpty()) {
-                    medico.setEspecialidade(especialidade);
-                }
-
-                // Atualizando o e-mail
-                if (!email.isEmpty()) {
-                    if (!isValidEmail(email)) {
-                        return "E-mail inválido.";
-                    }
-                    medico.setEmail(email);
-                }
-
-                // Atualizando o telefone
-                if (!telefone.isEmpty()) {
-                    if (!isValidTelefone(telefone)) {
-                        return "Telefone inválido.";
-                    }
-                    medico.setTelefone(telefone);
-                }
-
-                return "Dados do médico atualizados com sucesso!";
-            }
-        }
-        return "CRM não encontrado.";
-    }
-
-    // Validação do formato de e-mail
+    // Método para validar e-mail
     private boolean isValidEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
@@ -94,14 +50,56 @@ public class MedicoController {
         return matcher.matches();
     }
 
-    // Validação do formato do telefone
+    // Método para validar telefone
     private boolean isValidTelefone(String telefone) {
-        // Aqui você pode adicionar uma validação mais rigorosa dependendo do formato desejado
         return telefone.matches("\\d{10,11}"); // Exemplo: telefone de 10 ou 11 dígitos
     }
 
+    // Método para remover médico pelo CRM
+    public String removerMedico(int crm) {
+        // Procura o médico com o CRM informado
+        for (Medico m : medicos) {
+            if (m.getCrm() == crm) {
+                // Remove o médico da lista
+                medicos.remove(m);
+                return "Médico removido com sucesso!";
+            }
+        }
+        // Caso não encontre o médico
+        return "CRM não encontrado.";
+    }
 
-    public ArrayList<Medico> listarMedicos() {
-        return this.medicos;
+    // Método para atualizar as informações de um médico pelo CRM
+    public String atualizarMedico(int crm, String nome, String especialidade, String email, String telefone) {
+        // Percorre a lista de médicos para encontrar o médico com o CRM informado
+        for (Medico medico : medicos) {
+            if (medico.getCrm() == crm) {
+                // Atualiza os campos fornecidos, se não forem nulos ou vazios
+                if (nome != null && !nome.isEmpty()) {
+                    medico.setNome(nome);
+                }
+
+                if (especialidade != null && !especialidade.isEmpty()) {
+                    medico.setEspecialidade(especialidade);
+                }
+
+                if (email != null && !email.isEmpty() && isValidEmail(email)) {
+                    medico.setEmail(email);
+                } else if (email != null && !email.isEmpty()) {
+                    return "E-mail inválido.";
+                }
+
+                if (telefone != null && !telefone.isEmpty() && isValidTelefone(telefone)) {
+                    medico.setTelefone(telefone);
+                } else if (telefone != null && !telefone.isEmpty()) {
+                    return "Telefone inválido.";
+                }
+
+                // Retorna uma mensagem de sucesso
+                return "Dados do médico atualizados com sucesso!";
+            }
+        }
+        // Caso o CRM não seja encontrado na lista
+        return "CRM não encontrado.";
     }
 }

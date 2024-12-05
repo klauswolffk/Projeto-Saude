@@ -12,13 +12,16 @@ public class DispositivoView {
 
     public void cadastrarDispositivo(Dispositivos dispositivo) {
         System.out.println("Digite o tipo do dispositivo: ");
-        dispositivo.setTipo(ler.next());
+        dispositivo.setTipo(ler.nextLine());  // Alterado para nextLine()
+
         System.out.println("Digite a marca do dispositivo: ");
-        dispositivo.setMarca(ler.next());
+        dispositivo.setMarca(ler.nextLine());  // Alterado para nextLine()
+
         System.out.println("Digite o modelo do dispositivo: ");
-        dispositivo.setModelo(ler.next());
+        dispositivo.setModelo(ler.nextLine());  // Alterado para nextLine()
+
         System.out.println("Digite os valores de referência do dispositivo: ");
-        dispositivo.setValoresReferencia(ler.next());
+        dispositivo.setValoresReferencia(ler.nextLine());  // Alterado para nextLine()
 
         // Chama o método do Controller para cadastrar o dispositivo
         String resultado = dispositivoController.cadastrarDispositivo(dispositivo);
