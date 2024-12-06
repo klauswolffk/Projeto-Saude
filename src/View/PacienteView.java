@@ -36,7 +36,7 @@ public class PacienteView {
         System.out.println("Digite o histórico de doenças do paciente:");
         String historico = scanner.nextLine();
 
-        // Criando o objeto Paciente e configurando seus atributos
+
         paciente.setNome(nome);
         paciente.setCpf(cpf);
         paciente.setDataNascimento(dataNascimento);
@@ -45,7 +45,7 @@ public class PacienteView {
         paciente.setEmail(email);
         paciente.setHistorico(historico);
 
-        // Chamando o método para registrar o paciente
+
         String resultado = pacienteController.registrarPaciente(paciente);
         System.out.println(resultado);
         MenuView.mostrarMenuPrincipal();
@@ -53,12 +53,13 @@ public class PacienteView {
 
     public void listarPaciente() {
         ArrayList<Paciente> listpaciente = pacienteController.listarPacientes();
-        for (Paciente paciente : listpaciente) {
             if (listpaciente.isEmpty()) {
                 System.out.println("Nenhum paciente cadastrado! ");
             } else {
+                for (Paciente paciente : listpaciente) {
                 System.out.println(
-                        "PACIENTES\n"
+                        "PACIENTE\n"
+                                + ""
                                 + "Nome: " + paciente.getNome()
                                 + "\nCPF: " + paciente.getCpf()
                                 + "\nData de Nascimento: " + paciente.getDataNascimento()

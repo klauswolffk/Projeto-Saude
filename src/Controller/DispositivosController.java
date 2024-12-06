@@ -1,13 +1,14 @@
 package Controller;
 
 import Model.Dispositivos;
+import Model.Medico;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class DispositivosController {
 
-    private ArrayList<Dispositivos> dispositivos = new ArrayList<>();
+    private static ArrayList<Dispositivos> dispositivos = new ArrayList<>();
 
     // Método para cadastrar dispositivo
     public String cadastrarDispositivo(Dispositivos dispositivo) {
@@ -66,6 +67,15 @@ public class DispositivosController {
                     .append("\n\n");
         }
         return sb.toString();
+    }
+
+    public static Dispositivos buscarDispoPorModelo(String modelo) {
+        for (Dispositivos dispo : dispositivos) {
+            if (dispo.getModelo().equals(modelo)) {
+                return dispo;
+            }
+        }
+        return null;
     }
 
     // Método para listar todos os dispositivos cadastrados

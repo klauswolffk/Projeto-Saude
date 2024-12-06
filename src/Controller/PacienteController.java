@@ -1,13 +1,14 @@
 package Controller;
 
 
+import Model.Medico;
 import Model.Paciente;
 import java.util.ArrayList;
 
 
 public class PacienteController {
 
-    private ArrayList<Paciente> pacientes = new ArrayList<>();
+    private static ArrayList<Paciente> pacientes = new ArrayList<>();
 
     // Método para registrar um paciente
     public String registrarPaciente(Paciente paciente) {
@@ -60,6 +61,14 @@ public class PacienteController {
 
     public ArrayList<Paciente> listarPacientes() {
         return this.pacientes;
+    }
+    public static Paciente buscarPacientePorCPF(String cpf) {
+        for (Paciente paciente : pacientes) {
+            if (paciente.getCpf().equals(cpf)) {
+                return paciente;
+            }
+        }
+        return null;
     }
 
 

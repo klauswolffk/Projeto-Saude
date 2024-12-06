@@ -13,7 +13,21 @@ public class Paciente {
     private Medicacoes medicacoes;
     private Dispositivos dispositivos;
 
+    public Medicacoes getMedicacoes() {
+        return medicacoes;
+    }
 
+    public void setMedicacoes(Medicacoes medicacoes) {
+        this.medicacoes = medicacoes;
+    }
+
+    public Dispositivos getDispositivos() {
+        return dispositivos;
+    }
+
+    public void setDispositivos(Dispositivos dispositivos) {
+        this.dispositivos = dispositivos;
+    }
 
     public String getNome() {
         return nome;

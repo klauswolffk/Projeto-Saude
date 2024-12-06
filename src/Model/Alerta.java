@@ -1,17 +1,35 @@
 package Model;
 
 public class Alerta {
-    private Boolean tipoAlerta; // emergencia ou anormalidade (true e false)
+    private String tipoAlerta; // emergencia ou anormalidade (true e false)
     private String mensagem;
     private Paciente paciente;
     private Medico medico;
     private String data;
+    private int idAlerta;
+    private Monitoramento monitoramento;
 
-    public Boolean getTipoAlerta() {
+    public Monitoramento getMonitoramento() {
+        return monitoramento;
+    }
+
+    public void setMonitoramento(Monitoramento monitoramento) {
+        this.monitoramento = monitoramento;
+    }
+
+    public int getIdAlerta() {
+        return idAlerta;
+    }
+
+    public void setIdAlerta(int idAlerta) {
+        this.idAlerta = idAlerta;
+    }
+
+    public String getTipoAlerta() {
         return tipoAlerta;
     }
 
-    public void setTipoAlerta(Boolean tipoAlerta) {
+    public void setTipoAlerta(String tipoAlerta) {
         this.tipoAlerta = tipoAlerta;
     }
 

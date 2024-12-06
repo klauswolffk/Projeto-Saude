@@ -3,7 +3,7 @@ package Model;
 public class Medico {
     private String nome;
     private String especialidade;
-    private int crm;
+    private String crm;
     private String email;
     private String telefone;
 
@@ -23,11 +23,11 @@ public class Medico {
         this.especialidade = especialidade;
     }
 
-    public int getCrm() {
+    public String getCrm() {
         return crm;
     }
 
-    public void setCrm(int crm) {
+    public void setCrm(String crm) {
         this.crm = crm;
     }
 

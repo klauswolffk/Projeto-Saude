@@ -7,13 +7,13 @@ import java.util.regex.Pattern;
 
 public class MedicoController {
 
-    private ArrayList<Medico> medicos = new ArrayList<>();
+    private static ArrayList<Medico> medicos = new ArrayList<>();
 
     // Método para registrar médico
     public String registrarmedico(Medico medico) {
         // 1. Validação de CRM único
         for (Medico m : medicos) {
-            if (m.getCrm() == medico.getCrm()) {
+            if (m.getCrm().equals(medico.getCrm())) {
                 return "CRM já está cadastrado.";
             }
         }
@@ -56,10 +56,10 @@ public class MedicoController {
     }
 
     // Método para remover médico pelo CRM
-    public String removerMedico(int crm) {
+    public String removerMedico(String crm) {
         // Procura o médico com o CRM informado
         for (Medico m : medicos) {
-            if (m.getCrm() == crm) {
+            if (m.getCrm().equals(crm)) {
                 // Remove o médico da lista
                 medicos.remove(m);
                 return "Médico removido com sucesso!";
@@ -70,10 +70,10 @@ public class MedicoController {
     }
 
     // Método para atualizar as informações de um médico pelo CRM
-    public String atualizarMedico(int crm, String nome, String especialidade, String email, String telefone) {
+    public String atualizarMedico(String crm, String nome, String especialidade, String email, String telefone) {
         // Percorre a lista de médicos para encontrar o médico com o CRM informado
         for (Medico medico : medicos) {
-            if (medico.getCrm() == crm) {
+            if (medico.getCrm().equals(crm)) {
                 // Atualiza os campos fornecidos, se não forem nulos ou vazios
                 if (nome != null && !nome.isEmpty()) {
                     medico.setNome(nome);
@@ -103,9 +103,9 @@ public class MedicoController {
         return "CRM não encontrado.";
     }
 
-    public Medico buscarMedicoPorCRM(int crm) {
+    public static Medico buscarMedicoPorCRM(String crm) {
         for (Medico medico : medicos) {
-            if (medico.getCrm() == crm) {
+            if (medico.getCrm().equals(crm)) {
                 return medico; // Retorna o médico se o CRM for encontrado
             }
         }
