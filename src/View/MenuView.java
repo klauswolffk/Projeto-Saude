@@ -28,7 +28,17 @@ public class MenuView {
                            "|11.  Cadastrar Medicações                 |\n" +
                            "|12.  Alterar Dosagem                      |\n" +
                            "|13.  Remover Medicações                   |\n" +
-                           "|14.  Listar Medicações                    |\n" );
+                           "|14.  Listar Medicações                    |\n" +
+                           "|15.  Agendar Consulta                     |\n" +
+                           "|16.  Listar Consultas                     |\n" +
+                           "|17.  Registrar Monitoramento              |\n" +
+                           "|18.  Listar Monitoramentos                |\n" +
+                           "|19.  Cadastrar Alerta                     |\n" +
+                           "|20.  Remover Alerta                       |\n" +
+                           "|21.  Listar Alerta                        |\n" +
+                           "|------------------------------------------|\n" +
+                "\n" +
+                "\n" );
         opcao = ler.nextByte();
         menucontroller.principalcontroller(opcao);
 

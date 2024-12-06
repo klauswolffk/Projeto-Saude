@@ -1,8 +1,8 @@
 package View;
 
 import Controller.MedicacoesController;
-import Controller.MedicoController;
 import Model.Medicacoes;
+import Model.Medico;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,6 +15,11 @@ public class MedicacoesView {
     // Método para cadastrar uma medicação
     public void cadastrarMedicacao() {
         Medicacoes medicacao = new Medicacoes();
+        Medico crm = new Medico();
+        System.out.println("Digite o CRM do médico responsável: ");
+        crm.setCrm(scanner.next());
+
+
         System.out.println("Digite o ID da medicação:");
         medicacao.setId(scanner.nextInt());
 
@@ -34,7 +39,7 @@ public class MedicacoesView {
         medicacao.setDataPrescricao(scanner.next());
 
         // Chamar o controlador para registrar a medicação
-        String resultado = medicacoesController.cadastrarMedicacao(medicacao);
+        String resultado = medicacoesController.cadastrarMedicacao(medicacao , crm);
         System.out.println(resultado);
         MenuView.mostrarMenuPrincipal();
     }

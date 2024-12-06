@@ -21,7 +21,7 @@ public class MedicoView {
         medicoview.setEspecialidade(ler.next());
 
         System.out.println("Digite o CRM do Médico: ");
-        medicoview.setCrm(ler.nextInt());
+        medicoview.setCrm(ler.next());
 
         System.out.println("Digite o E-mail do Médico: ");
         medicoview.setEmail(ler.next());
@@ -55,7 +55,7 @@ public class MedicoView {
 
     public void removerMedico() {
         System.out.println("Digite o CRM do Médico que deseja remover: ");
-        int crm = ler.nextInt();
+        String crm = ler.next();
         String resultado = medicocontroller.removerMedico(crm);
         System.out.println(resultado);
         MenuView.mostrarMenuPrincipal();
@@ -63,13 +63,13 @@ public class MedicoView {
 
     public void atualizarMedico() {
         System.out.println("Digite o CRM do Médico que deseja atualizar: ");
-        int crm = ler.nextInt();
-        ler.nextLine();
+        String crm = ler.next();
 
         System.out.println("Digite o novo nome ou pressione Enter para manter: ");
-        String nome = ler.nextLine();
+        String nome = ler.next();
 
         System.out.println("Digite a nova especialidade ou pressione Enter para manter: ");
+        ler.nextLine();
         String especialidade = ler.nextLine();
 
         System.out.println("Digite o novo e-mail ou pressione Enter para manter: ");

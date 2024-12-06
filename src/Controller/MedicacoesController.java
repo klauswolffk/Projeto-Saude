@@ -6,38 +6,40 @@ import java.util.ArrayList;
 
 public class MedicacoesController {
 
-    private ArrayList<Medicacoes> medicacoes = new ArrayList<>();
-    private MedicoController medicoController = new MedicoController();
+    private static ArrayList<Medicacoes> medicacoes = new ArrayList<>();
 
     // Método para cadastrar medicação
-    public String cadastrarMedicacao(Medicacoes medicacao) {
-
+    public String cadastrarMedicacao(Medicacoes medicacao, Medico crm) {
         // Validação de ID único
         for (Medicacoes m : medicacoes) {
             if (m.getId() == medicacao.getId()) {
                 return "ID da medicação já está cadastrado.";
             }
         }
-        // Validação de dados obrigatórios
-        if (medicacao.getNome() == null || medicacao.getNome().isEmpty()) {
-            return "Nome da medicação é obrigatório.";
+        Medico medOld = MedicoController.buscarMedicoPorCRM(crm.getCrm());
+        if(medOld != null){
+            if (medicacao.getNome() == null || medicacao.getNome().isEmpty()) {
+                return "Nome da medicação é obrigatório.";
+            }
+            if (medicacao.getDosagem() == null || medicacao.getDosagem().isEmpty()) {
+                return "Dosagem da medicação é obrigatória.";
+            }
+            if (medicacao.getFrequencia() == null || medicacao.getFrequencia().isEmpty()) {
+                return "Frequência da medicação é obrigatória.";
+            }
+            if (medicacao.getDescricao() == null || medicacao.getDescricao().isEmpty()) {
+                return "Descrição da medicação é obrigatória.";
+            }
+            if (medicacao.getDataPrescricao() == null || medicacao.getDataPrescricao().isEmpty()) {
+                return "Data da prescrição é obrigatória.";
+            }
+            // Adicionando medicação à lista
+            medicacao.setMedico(medOld);
+            medicacoes.add(medicacao);
+            return "Medicação registrada com sucesso!";
+        }else{
+            return "CRM do médico não encontrado";
         }
-        if (medicacao.getDosagem() == null || medicacao.getDosagem().isEmpty()) {
-            return "Dosagem da medicação é obrigatória.";
-        }
-        if (medicacao.getFrequencia() == null || medicacao.getFrequencia().isEmpty()) {
-            return "Frequência da medicação é obrigatória.";
-        }
-        if (medicacao.getDescricao() == null || medicacao.getDescricao().isEmpty()) {
-            return "Descrição da medicação é obrigatória.";
-        }
-        if (medicacao.getDataPrescricao() == null || medicacao.getDataPrescricao().isEmpty()) {
-            return "Data da prescrição é obrigatória.";
-        }
-
-        // Adicionando medicação à lista
-        medicacoes.add(medicacao);
-        return "Medicação registrada com sucesso!";
     }
 
     // Método para remover medicação pelo ID
@@ -65,6 +67,15 @@ public class MedicacoesController {
     // Método para listar todas as medicações cadastradas
     public ArrayList<Medicacoes> listarMedicacoes() {
         return this.medicacoes;
+    }
+
+    public static Medicacoes buscarMedicacoesPorId(int id) {
+        for (Medicacoes medicacao : medicacoes) {
+            if (medicacao.getId() == id) {
+                return medicacao;
+            }
+        }
+        return null;
     }
 
 }
