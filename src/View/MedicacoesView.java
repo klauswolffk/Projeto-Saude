@@ -26,14 +26,18 @@ public class MedicacoesView {
         System.out.println("Digite o nome da medicação:");
         medicacao.setNome(scanner.next());
 
+        scanner.nextLine();
         System.out.println("Digite a dosagem da medicação:");
-        medicacao.setDosagem(scanner.next());
+        medicacao.setDosagem(scanner.nextLine());
 
+        scanner.nextLine();
         System.out.println("Digite a frequência da medicação:");
-        medicacao.setFrequencia(scanner.next());
+        medicacao.setFrequencia(scanner.nextLine());
 
+        scanner.nextLine();
         System.out.println("Digite a descrição da medicação:");
-        medicacao.setDescricao(scanner.next());
+        medicacao.setDescricao(scanner.nextLine());
+
 
         System.out.println("Digite a data de prescrição da medicação (dd/mm/aaaa):");
         medicacao.setDataPrescricao(scanner.next());

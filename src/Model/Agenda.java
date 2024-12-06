@@ -7,6 +7,15 @@ public class Agenda {
     private Paciente paciente;
     private String diagnostico;
     private String prescricaoMedicamento;
+    private Medicacoes medicacoes;
+
+    public Medicacoes getMedicacoes() {
+        return medicacoes;
+    }
+
+    public void setMedicacoes(Medicacoes medicacoes) {
+        this.medicacoes = medicacoes;
+    }
 
     public String getData() {
         return data;

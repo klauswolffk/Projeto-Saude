@@ -42,6 +42,7 @@ class MedicoControllerTest {
 
     @Test
     void removerMedicoSucesso() {
+        medicoController.registrarmedico(medico);
         String resultado = medicoController.removerMedico(medico.getCrm());
         assertEquals(resultado,"Médico removido com sucesso!");
     }

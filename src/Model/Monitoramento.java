@@ -5,7 +5,15 @@ public class Monitoramento {
     private Dispositivos dispositivos;
     private String Dadosmonitoramento;
     private int idMonitoramento;
+    private Medico medico;
 
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
 
     public Paciente getPaciente() {
         return paciente;
