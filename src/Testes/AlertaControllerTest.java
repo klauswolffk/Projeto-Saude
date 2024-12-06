@@ -82,9 +82,9 @@ class AlertaControllerTest {
 
     @Test
     void cadastrarAlertaFalhado() {
-        medicoController.registrarmedico(medico);
+        Medico medico = new Medico();
         pacienteController.registrarPaciente(paciente);
-        Dispositivos dispositivos = new Dispositivos();
+        dispositivosController.cadastrarDispositivo(dispositivos);
         monitoramentoController.cadastrarMonitoramento(monitoramento,medico,paciente,dispositivos);
         String resultado = alertaController.cadastrarAlerta(alerta,medico,paciente,monitoramento);
         assertEquals(resultado, "Verifique se o Médico, Paciente e Monitoramento estão cadastrados");

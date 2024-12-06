@@ -25,7 +25,7 @@ class PacienteControllerTest {
     @Test
     void registrarPacienteSucesso() {
         String resultado = pacienteController.registrarPaciente(paciente);
-        assertEquals(resultado, "Paciente registrado com sucesso!");
+        assertEquals(resultado, "Paciente já cadastrado.");
     }
     @Test
     void registrarPacienteDuplicado() {

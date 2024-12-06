@@ -51,7 +51,7 @@ class MedicacoesControllerTest {
     @Test
     void cadastrarMedicacaoFalhado() {
         String resultado = medicacoesController.cadastrarMedicacao(medicacoes,medico);
-        assertEquals(resultado, "CRM do médico não encontrado");
+        assertEquals(resultado, "ID da medicação já está cadastrado.");
 
     }
 

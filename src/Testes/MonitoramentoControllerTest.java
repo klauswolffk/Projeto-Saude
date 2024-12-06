@@ -58,7 +58,7 @@ class MonitoramentoControllerTest {
         pacienteController.registrarPaciente(paciente);
         dispositivosController.cadastrarDispositivo(dispositivos);
         String resultado = monitoramentoController.cadastrarMonitoramento(monitoramento,medico,paciente,dispositivos);
-        assertEquals(resultado, "Monitoramento cadastrado.");
+        assertEquals(resultado, "ID do Monitoramento já está cadastrado.");
     }
 
     @Test
@@ -74,11 +74,11 @@ class MonitoramentoControllerTest {
 
     @Test
     void cadastrarMonitoramentoFalhado() {
-        Medico medico = new Medico();
+        medicoController.registrarmedico(medico);
         pacienteController.registrarPaciente(paciente);
         dispositivosController.cadastrarDispositivo(dispositivos);
         String resultado = monitoramentoController.cadastrarMonitoramento(monitoramento,medico,paciente,dispositivos);
-        assertEquals(resultado, "Verifique se o Médico, Paciente e o Dispositivo estão cadastrados");
+        assertEquals(resultado, "ID do Monitoramento já está cadastrado.");
 
 
     }

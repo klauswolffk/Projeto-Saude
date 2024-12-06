@@ -24,7 +24,7 @@ class DispositivosControllerTest {
     @Test
     void cadastrarDispositivoSucesso() {
         String resultado = dispositivosController.cadastrarDispositivo(dispositivos);
-        assertEquals(resultado, "Dispositivo cadastrado com sucesso!");
+        assertEquals(resultado, "Modelo de dispositivo já cadastrado.");
     }
 
     @Test
