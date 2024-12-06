@@ -21,4 +21,4 @@ jobs:
       with:
         java-version: '22'
         distribution: 'temurin'
-    - run: java Main.java
+    - run: java Main.class
