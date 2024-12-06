@@ -33,6 +33,7 @@ public class AgendaView {
 
         System.out.println("Digite o Diagnóstico: ");
         agendaview.setDiagnostico(ler.next());
+        ler.nextLine();
 
         System.out.println("Digite o ID da medicação: ");
         idMedicacaoAgenda.setId(ler.nextInt());

@@ -4,7 +4,6 @@ public class Dispositivos {
     private String tipo;
     private String marca;
     private String modelo;
-    private Boolean status; // ativo e inativo (true e false)
     private String valoresReferencia;
 
     public String getTipo() {
@@ -29,14 +28,6 @@ public class Dispositivos {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
     }
 
     public String getValoresReferencia() {

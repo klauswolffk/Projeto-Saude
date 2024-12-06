@@ -69,8 +69,9 @@ public class PacienteView {
                                 + "\nHistórico de doenças: " + paciente.getHistorico());
                 System.out.println(" ");
             }
-            MenuView.mostrarMenuPrincipal();
+
         }
+        MenuView.mostrarMenuPrincipal();
     }
 
         // Método para alterar os dados do paciente
